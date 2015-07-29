@@ -1,0 +1,49 @@
+<div class="container">
+  <div align="center"><br>
+    <h2>MeowMeowMeowMeow</h2>
+  <!--   #CREATE - NEW -->
+    <form action = "/categories" method="post">
+      <input type="text" name="new_category">
+      <input type="submit" value="Create!">
+    </form>
+    <!--   #READ - INDEX -->
+    <form action = "/categories/:category_id/edit" method="get">
+      <input type="text" name="edit_category" placeholder="Old category name">
+      <input type="text" name="edit_new_category" placeholder="New category name">
+      <input type="submit" value="Update!">
+
+      <% if @edit_item %>
+        <h4>Category is updated!</h4>
+          <%= @edit_item %><br>
+        <%end%>
+    </form
+
+
+
+
+    <% if @category %>
+      <h4>New Category is added!</h4>
+      <%= @category.name %>
+    <%end%><br>
+
+  </div>
+
+
+
+  <div align="center">
+    <h2>Categories</h2>
+      <% if @semua %>
+        <% @semua.each do |x| %>
+        <%= x.name %>   <a href="/categories/<%=x.id%>/edit">Edit this category</a> <form action = "/categories/<%= x.id %>" method="post" id = "post">
+  <input type="hidden" name="_method" value="delete">
+   <input type = "submit" value = "Delete">
+</form><br>
+        <%end%>
+      <%end%>
+  </div>
+
+</div>
+
+
+
+

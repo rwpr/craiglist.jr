@@ -1,0 +1,7 @@
+<h1> Welcome to <%= @category.name %></h1>
+<p> This is the posts under this category:</p>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%=post.desc%></li>
+    <%end%>
+</ul>
